@@ -25,4 +25,20 @@ We aim to have a lower RMSE in our model so that it will reflects good performan
 
 Since we aim for an accurate model, a high R^2 means that our model predict large variability of the model so that we can confirm that we have the correct sets of features to predict the calories
 
+# Baseline Model
+For the baseline model, we used the linear regression model from sklearn and we used the columns "n_ingredients" and "minutes" to predict the "calories" of the food. The reason why we used linear regression is because it is relatively basic so we think it would set the basline for our final model which should have a better result. We chose to use "n_ingredients" and "minutes" as the columns to predict "calories" because we think the number of ingredients used has a correlation with the calories of the food as the more ingredients there are, the more calories the food has. For minutes, we also think it has a similar correlation as the longer it takes to make the dish, there should be more ingredients and steps to take which means there should be more calories.
+
+
+## Preprocessing the Data
+Both of the columns that we are using are quantitative variables, so we don't have to conduct preprocessing that transforms categorical variables. However, we realized that the data in the minutes and n_ingredients columns have a huge variance. Therefore, we used StandardScaler to standardize both of the columns, which would lower the variance between the datapoints.
+
+
+## Model Performance
+After fitting and predicting the data, the R^2 value that we got is 0.01948289259781144, which is pretty low. This suggests that "n_ingredients" and "minutes" aren't really the main contributing factors to predict calories. There is also a possiblity that a linear regression model isn't the best model to predict calories using n_ingredients and minutes. Moreover, we obtained the RMSE for the model which is 23.11474264203012. This suggests that there is some deviation between the predicted values and the actual values. We believe that we could do better to train a model that predicts data with a lower RMSE.
+
+
+
+
+We also obtained a residual plot from the which illustrates the RMSE of the model. As you can see, the deviation is heavily skewed towards the positive side. This implies that the baseline model can be further improved.
+*residual plot*
 
