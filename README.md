@@ -77,6 +77,20 @@ On all of the features above, we perform StandardScaler() transsform so that the
 ## Selection of Hyperparameters
 
 We apply GridsearchCV on hyperparameters like alpha for 0.01,0.1,1,10, max_iter for 10,100,1000,10000 and tol for 0.0001, 0.001, 0.01, 0.1. It returns that the model has the best test and training prediction when alpha is 1, max_iter=10, tol=0.001 and we apply those hyperparameters for our model
+
 <img src="assets/hyper.png" frameBorder=0></iframe>
+
+## Results and model performances
+
+Here is the performance of our model
+<img src="assets/per.png" frameBorder=0></iframe>
+
+The performance on the final model is greatly improve since the rmse reduce from 23.3 to 11.8 which the errors were decrease into half compare to the first model.
+
+By comparing the R^2, the coef increase from 0.02 to 0.93, which means our model could explain 93% of the variation that cause calories. Which should be able to perform a good estimate on unknown receipe. The reason we did not add more regressor for the model is because we try to prevent overfitting so that the model would also perfore good estimate on unknown receipes. When we apply the model to our test set 
+
+
+
+<iframe src="assets/fin_fig.html" width=600 height=400 frameBorder=0></iframe>
 
 
