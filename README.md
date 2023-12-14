@@ -77,6 +77,6 @@ On all of the features above, we perform StandardScaler() transsform so that the
 ## Selection of Hyperparameters
 
 We apply GridsearchCV on hyperparameters like alpha for 0.01,0.1,1,10, max_iter for 10,100,1000,10000 and tol for 0.0001, 0.001, 0.01, 0.1. It returns that the model has the best test and training prediction when alpha is 1, max_iter=10, tol=0.001 and we apply those hyperparameters for our model
-<img src="assets/hyper.png" width=600 height=400 frameBorder=0></iframe>
+<img src="assets/hyper.png" frameBorder=0></iframe>
 
 
