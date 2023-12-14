@@ -5,7 +5,7 @@ Made by Brighton Chan and Lincoln Ma
 
 ## Problem Identification
 When we were given a random meal,we do not know how much calories that we were
-comsuming. In our data frame, we were given (cols) which can used to predict
+comsuming. In our data frame, we were given minutes, n_steps,n_ingredient,'total fat','protein',"sugar" which can used to predict
 the calories for receipes in our data set so we can tell how much calories are
 we comsuming if the food item dont have the calories label.
 
@@ -40,5 +40,43 @@ After fitting and predicting the data, the R^2 value that we got is 0.0194828925
 
 
 We also obtained a residual plot from the which illustrates the RMSE of the model. As you can see, the deviation is heavily skewed towards the positive side. This implies that the baseline model can be further improved.
-*residual plot*
+<iframe src="assets/res_fig.html" width=600 height=400 frameBorder=0></iframe>
+
+# Final Model
+
+## Model chosen
+
+In the final model, we decided to use Lasso(Least Absolute Shrinkage and Selection Operator) is a regularization technique used in regression analysis and machine learning. It is employed to prevent overfitting and to encourage simpler, more interpretable models. By the inplemetation, we could fit our model with more choice of estimator on the model since it has a faster complexty.
+
+## Features Added
+
+### n_steps
+
+We believe that if there is more steps on a single receipe, then it will often become more complex which will increase the calories because of the different procedures on different part of a food items
+
+### n_ingredient 
+
+We believe that if there is more ingredient, then it has a higher posibility to contains ingredients will high calories to enchance it taste, so it will be correlated with calories
+
+### total fat
+
+Fat is a mainly contributors to the calories, fat should be highly correlated to calories
+
+### protein
+
+Food with high protein like meat and milk usually also comtains high calories
+
+
+### sugar
+
+Sugar is a main source of energy and it is one of the main contributers to calories. Sugar should be highly correlated to calories
+
+On all of the features above, we perform StandardScaler() transsform so that the coeficants of the estimator should be more precise if we did not standize them. So that the lasso model should have better features to predict the calories in the training
+
+
+## Selection of Hyperparameters
+
+We apply GridsearchCV on hyperparameters like alpha for 0.01,0.1,1,10, max_iter for 10,100,1000,10000 and tol for 0.0001, 0.001, 0.01, 0.1. It returns that the model has the best test and training prediction when alpha is 1, max_iter=10, tol=0.001 and we apply those hyperparameters for our model
+<img src="assets/hyper.png" width=600 height=400 frameBorder=0></iframe>
+
 
